@@ -11,7 +11,7 @@ public final class Evaluator {
 
     private Evaluator() {}
 
-    // ── Material values (centipawns) ───────────────────────────────────────
+    // Material values (centipawns)
     public static final int PAWN_VAL   = 100;
     public static final int KNIGHT_VAL = 320;
     public static final int BISHOP_VAL = 330;
@@ -31,7 +31,7 @@ public final class Evaluator {
         };
     }
 
-    // ── Piece-square tables (White's perspective, row 0 = back rank) ───────
+    // Piece-square tables (White's perspective, row 0 = back rank)
 
     private static final int[] PST_PAWN = {
          0,  0,  0,  0,  0,  0,  0,  0,

@@ -20,7 +20,7 @@ public class GameEngine {
         this.validator = new MoveValidator();
     }
 
-    // ── Public API ─────────────────────────────────────────────────────────
+    // Public API
 
     public Board     getBoard()     { return board; }
     public GameState getState()     { return state; }
@@ -81,7 +81,7 @@ public class GameEngine {
         return validator.getLegalMoves(row, col, board);
     }
 
-    // ── Status ─────────────────────────────────────────────────────────────
+    // Status
 
     private void updateStatus() {
         Piece.Color turn = state.getCurrentTurn();

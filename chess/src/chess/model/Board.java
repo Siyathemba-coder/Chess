@@ -14,7 +14,7 @@ public class Board {
         init();
     }
 
-    // ── Copy constructor (used by engine for look-ahead / check detection) ──
+    // Copy constructor (used by engine for look-ahead / check detection)
     public Board(Board other) {
         for (int r = 0; r < 8; r++)
             for (int c = 0; c < 8; c++) {
@@ -25,10 +25,8 @@ public class Board {
             }
         this.enPassantRow = other.enPassantRow;
         this.enPassantCol = other.enPassantCol;
-    }
-
-    // ── Accessors ──────────────────────────────────────────────────────────
-
+    } 
+    
     public Piece get(int row, int col) {
         return grid[row][col];
     }
@@ -57,8 +55,6 @@ public class Board {
         enPassantRow = -1;
         enPassantCol = -1;
     }
-
-    // ── Apply a move to this board (mutates in place) ──────────────────────
 
     public void applyMove(Move move) {
         Piece moving = grid[move.fromRow][move.fromCol];
@@ -106,7 +102,7 @@ public class Board {
         }
     }
 
-    // ── Find king position ─────────────────────────────────────────────────
+    // Find king position 
 
     public int[] findKing(Piece.Color color) {
         for (int r = 0; r < 8; r++)
@@ -118,7 +114,7 @@ public class Board {
         throw new IllegalStateException("King not found for " + color);
     }
 
-    // ── Board setup ────────────────────────────────────────────────────────
+    // Board setup 
 
     private void init() {
         // Black back rank
@@ -145,8 +141,7 @@ public class Board {
         for (int c = 0; c < 8; c++) grid[row][c] = new Pawn(color);
     }
 
-    // ── Helpers ────────────────────────────────────────────────────────────
-
+    // Helpers 
     private Piece clonePiece(Piece p) {
         Piece clone = createPromoted(p.getType(), p.getColor());
         if (p.hasMoved()) clone.setMoved();

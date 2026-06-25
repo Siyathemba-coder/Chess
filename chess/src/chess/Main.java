@@ -17,23 +17,23 @@ public class Main {
         System.out.println("=== Chess Engine Smoke Test ===\n");
         System.out.println(engine.getBoard());
 
-        // e2→e4
+        // e2 -> e4
         move(engine, 6, 4, 4, 4);
-        // e7→e5
+        // e7 -> e5
         move(engine, 1, 4, 3, 4);
-        // g1→f3
+        // g1 -> f3
         move(engine, 7, 6, 5, 5);
-        // b8→c6
+        // b8 -> c6
         move(engine, 0, 1, 2, 2);
-        // f1→c4  (Scholar's mate setup)
+        // f1 -> c4  (Scholar's mate setup)
         move(engine, 7, 5, 4, 2);
-        // d7→d6
+        // d7 -> d6
         move(engine, 1, 3, 2, 3);
-        // d1→h5
+        // d1 -> h5
         move(engine, 7, 3, 3, 7);
-        // a7→a6
+        // a7 -> a6
         move(engine, 1, 0, 2, 0);
-        // Qh5→f7  Scholar's mate
+        // Qh5 -> f7  Scholar's mate
         move(engine, 3, 7, 1, 5);
 
         System.out.println("\nFinal status: " + engine.getState().getStatus());

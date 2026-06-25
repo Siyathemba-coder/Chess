@@ -17,7 +17,7 @@ import java.util.Set;
  */
 public class BoardPanel extends JPanel {
 
-    // ── Board colours ──────────────────────────────────────────────────────
+    // Board colours 
     private static final Color LIGHT         = new Color(0xF0D9B5);
     private static final Color DARK          = new Color(0xB58863);
     private static final Color SELECT_TINT   = new Color(246, 246, 105, 160);
@@ -58,9 +58,7 @@ public class BoardPanel extends JPanel {
             @Override public void mousePressed(MouseEvent e) { handleClick(e.getX(), e.getY()); }
         });
     }
-
-    // ── Painting ───────────────────────────────────────────────────────────
-
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -156,7 +154,7 @@ public class BoardPanel extends JPanel {
         }
     }
 
-    // ── Piece rendering (Unicode glyphs, styled) ──────────────────────────
+    // Piece rendering (Unicode glyphs, styled) 
 
     private void drawPiece(Graphics2D g2, Piece piece, int x, int y) {
         String glyph = getGlyph(piece);
@@ -197,7 +195,7 @@ public class BoardPanel extends JPanel {
         };
     }
 
-    // ── Interaction ────────────────────────────────────────────────────────
+    // Interaction 
 
     private void handleClick(int px, int py) {
         if (engine.getState().isOver()) return;
@@ -211,7 +209,7 @@ public class BoardPanel extends JPanel {
         Piece clicked = board.get(row, col);
 
         if (selectedRow == -1) {
-            // Nothing selected yet — select own piece
+            // Nothing selected yet - select own piece
             if (clicked != null && clicked.getColor() == engine.getState().getCurrentTurn()) {
                 selectPiece(row, col);
             }
@@ -268,7 +266,7 @@ public class BoardPanel extends JPanel {
         }
     }
 
-    /** Simple algebraic notation (not full SAN — good enough for the log). */
+    /** Simple algebraic notation (not full SAN - good enough for the log). */
     private String buildNotation(int fr, int fc, int tr, int tc, Piece.Type promotion) {
         Piece p = engine.getBoard().get(fr, fc);
         String piece = switch (p.getType()) {

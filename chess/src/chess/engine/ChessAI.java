@@ -36,8 +36,7 @@ public class ChessAI {
     public void setDifficulty(Difficulty d) { this.difficulty = d; }
     public Difficulty getDifficulty()       { return difficulty; }
 
-    // ── Public API ─────────────────────────────────────────────────────────
-
+    // -- Public API --
     /**
      * Computes the best move for the given color on the given board.
      * Returns null if no legal moves exist (shouldn't happen in normal play).
@@ -50,7 +49,7 @@ public class ChessAI {
         List<Move> moves = orderMoves(validator.getAllLegalMoves(color, board), board);
         if (moves.isEmpty()) return null;
 
-        // Iterative deepening — always have a result even if time runs out
+        // Iterative deepening - always have a result even if time runs out
         for (int depth = 1; depth <= difficulty.depth; depth++) {
             int alpha = Integer.MIN_VALUE + 1;
             int beta  = Integer.MAX_VALUE - 1;
@@ -83,7 +82,7 @@ public class ChessAI {
 
     public int getLastNodesVisited() { return nodesVisited; }
 
-    // ── Negamax with alpha-beta ────────────────────────────────────────────
+    // Negamax with alpha-beta 
 
     private int negamax(Board board, int depth, int alpha, int beta, Piece.Color color) {
         nodesVisited++;
@@ -128,11 +127,8 @@ public class ChessAI {
         }
         return alpha;
     }
-
-    // ── Evaluation ─────────────────────────────────────────────────────────
-
     /**
-     * Evaluates the board from `color`'s perspective (positive = good for color).
+     * Evaluates the board from color's perspective (positive = good for color).
      */
     private int evaluate(Board board, Piece.Color color) {
         int score = 0;
@@ -148,7 +144,7 @@ public class ChessAI {
         return score;
     }
 
-    // ── Move ordering (MVV-LVA for captures) ──────────────────────────────
+    // Move ordering (MVV-LVA for captures) 
 
     private List<Move> orderMoves(List<Move> moves, Board board) {
         List<Move> captures = new ArrayList<>();

@@ -115,7 +115,7 @@ public class PromotionDialog extends JDialog {
 
     /** Blocks until the player chooses; returns the chosen piece type. */
     public Piece.Type getChoice() {
-        setVisible(true); // blocks (modal)
+        setVisible(true); 
         return chosen;
     }
 }

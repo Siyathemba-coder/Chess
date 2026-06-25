@@ -17,15 +17,15 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    // ── REST endpoints ─────────────────────────────────────────────────────
+    // REST endpoints
 
-    /** POST /api/game/new  →  creates game, returns initial state */
+    /** POST /api/game/new -> creates game, returns initial state */
     @PostMapping("/new")
     public ResponseEntity<GameStateDto> newGame(@RequestBody NewGameRequest req) {
         return ResponseEntity.ok(gameService.newGame(req));
     }
 
-    /** GET /api/game/{id}  →  current state */
+    /** GET /api/game/{id} -> current state */
     @GetMapping("/{id}")
     public ResponseEntity<GameStateDto> getGame(@PathVariable String id) {
         return gameService.getGame(id)
@@ -33,13 +33,13 @@ public class GameController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /** POST /api/game/move  →  apply a move, returns updated state */
+    /** POST /api/game/move -> apply a move, returns updated state */
     @PostMapping("/move")
     public ResponseEntity<GameStateDto> move(@RequestBody MoveRequest req) {
         return ResponseEntity.ok(gameService.applyMove(req));
     }
 
-    /** GET /api/game/{id}/legal-moves?row=6&col=4  →  list of [row,col] targets */
+    /** GET /api/game/{id}/legal-moves?row=6&col=4 -> list of [row,col] targets */
     @GetMapping("/{id}/legal-moves")
     public ResponseEntity<LegalMovesDto> legalMoves(
             @PathVariable String id,
@@ -48,7 +48,7 @@ public class GameController {
         return ResponseEntity.ok(gameService.legalMoves(id, row, col));
     }
 
-    // ── WebSocket  ─────────────────────────────────────────────────────────
+    // WebSocket 
 
     /**
      * Clients can also send moves via WebSocket.

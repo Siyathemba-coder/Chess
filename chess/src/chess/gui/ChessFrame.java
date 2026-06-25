@@ -79,7 +79,7 @@ public class ChessFrame extends JFrame {
             SwingUtilities.invokeLater(this::triggerAiMove);
     }
 
-    // ── Title bar ──────────────────────────────────────────────────────────
+    // Title bar 
 
     private JPanel buildTitleBar() {
         JPanel p = new JPanel(new BorderLayout());
@@ -107,7 +107,7 @@ public class ChessFrame extends JFrame {
         return p;
     }
 
-    // ── Sidebar ────────────────────────────────────────────────────────────
+    // Sidebar
 
     private JPanel buildSidebar() {
         JPanel s = new JPanel();
@@ -210,7 +210,7 @@ public class ChessFrame extends JFrame {
         return s;
     }
 
-    // ── AI dialog ──────────────────────────────────────────────────────────
+    // AI dialog 
 
     private void showAiDialog() {
         JDialog dlg = new JDialog(this, "AI Settings", true);
@@ -292,7 +292,7 @@ public class ChessFrame extends JFrame {
         b.setFont(new Font("Georgia", Font.PLAIN, 12));
     }
 
-    // ── AI trigger ─────────────────────────────────────────────────────────
+    // AI trigger 
 
     void triggerAiMove() {
         if (!aiEnabled || engine.getState().isOver()) return;
@@ -316,8 +316,6 @@ public class ChessFrame extends JFrame {
         };
         worker.execute();
     }
-
-    // ── Hooks from BoardPanel ──────────────────────────────────────────────
 
     void onMoveMade(String moveNotation, boolean whiteJustMoved) {
         if (whiteJustMoved) {
@@ -368,15 +366,14 @@ public class ChessFrame extends JFrame {
 
     private void resetGame() { buildUI(); pack(); }
 
-    // ── Entry point ────────────────────────────────────────────────────────
-
+    // Entry point
     public static void main(String[] args) {
         try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); }
         catch (Exception ignored) {}
         SwingUtilities.invokeLater(ChessFrame::new);
     }
 
-    // ── Shared button factory ──────────────────────────────────────────────
+    // Shared button factory 
 
     JButton styledButton(String text) {
         JButton b = new JButton(text) {

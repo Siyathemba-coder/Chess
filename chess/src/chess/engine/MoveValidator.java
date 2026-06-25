@@ -80,7 +80,7 @@ public class MoveValidator {
         return false;
     }
 
-    // ── Helpers ────────────────────────────────────────────────────────────
+    // Helpers
 
     private Move buildMove(int fromRow, int fromCol, int toRow, int toCol,
                            int flag, Piece piece, Board board) {
